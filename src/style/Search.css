@@ -1,0 +1,193 @@
+ .search-page{
+
+    min-height:100vh;
+
+    background:#f8f8f8;
+
+    padding:40px 120px;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+
+.search-title{
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+    color:#1c1c1c;
+
+}
+
+
+
+/* Search bar */
+
+.search-box{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.search-input{
+
+    width:450px;
+
+    height:50px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    padding:0 20px;
+
+    font-size:16px;
+
+    outline:none;
+
+    background:white;
+
+}
+
+
+
+.search-input:focus{
+
+    border-color:#ff5200;
+
+}
+
+
+
+.search-btn{
+
+    width:120px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ff5200;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+
+.search-btn:hover{
+
+    background:#e64800;
+
+}
+
+
+
+/* Restaurant card */
+
+.restaurant-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:0px 5px 15px rgba(0,0,0,0.08);
+
+}
+
+
+
+.restaurant-name{
+
+    font-size:24px;
+
+    margin-bottom:20px;
+
+    color:#333;
+
+}
+
+
+
+/* Menu item */
+
+.menu-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.menu-item h3{
+
+    margin:0;
+
+    font-size:18px;
+
+    color:#222;
+
+}
+
+
+
+.description{
+
+    width:500px;
+
+    color:#686b78;
+
+    font-size:14px;
+
+    margin-top:8px;
+
+    line-height:20px;
+
+}
+
+
+
+.price{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#333;
+
+}
+
+
+
+.menu-item:last-child{
+
+    border-bottom:none;
+
+} 

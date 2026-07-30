@@ -1,0 +1,46 @@
+.help {
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+.help-header {
+  background: #2874a6;
+  color: white;
+  padding: 50px;
+}
+
+.help-header h1 {
+  margin-bottom: 10px;
+}
+
+.help-box {
+  width: 70%;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.help-box h2 {
+  margin-bottom: 20px;
+}
+
+.help-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.help-item:hover {
+  color: #fc8019;
+}
+.answer{
+    padding:15px 0;
+    color:#555;
+    line-height:1.5;
+    border-bottom:1px solid #ddd;
+}

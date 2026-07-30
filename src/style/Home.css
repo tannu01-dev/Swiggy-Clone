@@ -1,0 +1,38 @@
+.home-heading{
+    text-align: start;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.home_card-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card{
+    width: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+.card-image{
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0;
+}
+.card-info,
+.card-cuisine,
+.price{
+    text-align: left;
+    margin: 8px 0;
+}
