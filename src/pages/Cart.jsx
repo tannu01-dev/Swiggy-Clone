@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Cart=()=>{
     const navigate =useNavigate();
-    console.log(import.meta.env.VITE_API_KEY);
+    
     const {cartItems}=useOutletContext();
     console.log(cartItems)
     return(
@@ -15,6 +15,7 @@ const Cart=()=>{
     const a = r.card.info;
     const price = (a.defaultPrice || a.price)/100;
     const totalPrice = price * r.quantity;
+    
 
     
     
