@@ -13,18 +13,18 @@ function App() {
   const[cartItems,setCartItems]=useState([]);
   const addItems = (item, resturants) => {
 
-  console.log("ADD CLICK FUNCTION RUN", item.card.info.name);
+  console.log("ADD CLICK FUNCTION RUN", item.name);
 
   setCartItems((prev) => {
 
     const existingItem = prev.find(
-      (cartItem) => cartItem.card.info.id === item.card.info.id
+      (cartItem) => cartItem.id === item.id
     );
 
     if (existingItem) {
 
       return prev.map((cartItem) =>
-        cartItem.card.info.id === item.card.info.id
+        cartItem.id === item.id
           ? {
               ...cartItem,
               quantity: cartItem.quantity + 1
@@ -40,10 +40,10 @@ function App() {
           ...item,
           quantity: 1,
           resturant: {
-            id: resturants.info.id,
-            name: resturants.info.name,
-            area: resturants.info.areaName,
-            image: resturants.info.cloudinaryImageId
+            id: resturants?._id,
+            name: resturants?.name,
+            area: resturants?.areaName,
+            image: resturants?.cloudinaryImageId
           }
         }
       ];
@@ -56,7 +56,7 @@ function App() {
 
   const removeItems=(item)=>{
   const existingIndex=cartItems.findIndex(
-    (cartItem)=>cartItem.card?.info.id===item.card?.info.id
+    (cartItem)=>cartItem.id===item.id
   );
 
   if(existingIndex!==-1){
@@ -76,29 +76,79 @@ function App() {
   }
 
 
-  useEffect(()=>{
-    const fetchResturants=async ()=>{
-      try{
-        const response=await fetch("http://localhost:5173/Resturant.json")
-        console.log(response);
-        if(response.ok){
-          const data=await response.json();
-          setResturants(data);
-          console.log(data)
-        }
-      }catch(err){
-        console.log("fail to load")
+  // useEffect(()=>{
+  //   const fetchResturants=async ()=>{
+  //     try{
+  //       const response=await fetch("http://localhost:9000/api/v1/resturant")
+  //       console.log(response);
+  //       if(response.ok){
+  //         const data=await response.json();
+  //         setResturants(result.data);
+  //         console.log(data)
+  //       }
+  //     }catch(err){
+  //       console.log("fail to load")
 
-      }finally{
-        setLoading(false)
+  //     }finally{
+  //       setLoading(false)
 
+  //     }
+
+
+  //   }
+  //   fetchResturants();
+
+  // },[])
+
+//   useEffect(() => {
+//   const fetchResturants = async () => {
+//     try {
+//       const response = await fetch(
+//         "http://localhost:9000/api/v1/Resturant"
+//       );
+
+//       console.log("STATUS:", response.status);
+//       console.log("OK:", response.ok);
+
+//       const text = await response.text();
+
+//       console.log("RAW BACKEND RESPONSE:", text);
+
+//     } catch (err) {
+//       console.log("ACTUAL ERROR:", err);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   fetchResturants();
+// }, []);
+
+useEffect(() => {
+  const fetchResturants = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:9000/api/v1/Resturant"
+      );
+
+      console.log("Response:", response);
+
+      if (response.ok) {
+        const result = await response.json();
+
+        console.log("Backend Result:", result);
+
+        setResturants(result.data);
       }
-
-
+    } catch (err) {
+      console.log("ACTUAL ERROR:", err);
+    } finally {
+      setLoading(false);
     }
-    fetchResturants();
+  };
 
-  },[])
+  fetchResturants();
+}, []);
 
   useEffect(() => {
     console.log("Cart Items =>", cartItems);

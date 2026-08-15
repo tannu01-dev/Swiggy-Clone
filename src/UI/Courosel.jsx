@@ -29,7 +29,7 @@ const handlePrevClick = () => {
                 <section className='carousel__slider'>
                     <ul className='carousel__slides' ref={slideContainerRef}>
                         {resturants.map((res)=>{
-                            return <li key={res.info.id}>
+                            return <li key={res._id}>
                                 <Card res={res}></Card>
                                 </li>
                             })}

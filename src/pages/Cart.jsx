@@ -12,8 +12,8 @@ const Cart=()=>{
             
             <div className="cart_items">
                 {cartItems.length > 0 && cartItems.map((r)=>{
-    const a = r.card.info;
-    const price = (a.defaultPrice || a.price)/100;
+    const a = r;
+    const price = (a.defaultPrice || a.price || 0)/100;
     const totalPrice = price * r.quantity;
     
 

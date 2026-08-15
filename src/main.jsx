@@ -8,6 +8,8 @@ import Help from './pages/Help.jsx'
 import Cart from './pages/Cart.jsx'
 import Search from './pages/Search.jsx'
 import Resturent from './pages/Resturent.jsx'
+import ResturantList from "./pages/ResturantList";
+import CreateRestaurant from "./pages/CreateResturant.jsx"
 import PageNotFound from './pages/PageNotFound.jsx'
 import DeliveryAnimation from './pages/deliveryAnimation.jsx'
 
@@ -39,6 +41,14 @@ const res=createBrowserRouter([{
       path:"/DeliveryAnimation",
       element:<DeliveryAnimation/>
     },
+    {
+        path: "/list",
+        element: <ResturantList></ResturantList>,
+      },
+      {
+        path: "/create",
+        element: <CreateRestaurant></CreateRestaurant>,
+      },
     {
       path:"/Checkout",
       element:<Checkout/>

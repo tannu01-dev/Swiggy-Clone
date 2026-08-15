@@ -15,10 +15,13 @@ const Resturent=()=>{
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-                const response=await fetch("http://localhost:5173/Menu.json");
-                const data=await response.json();
-                setMenu(data || []);
+                const response=await fetch("http://localhost:9000/api/v1/menu");
+                const data = await response.json();
 
+console.log("BACKEND DATA:", data);
+console.log("FIRST MENU ITEM:", data.data?.[0]?.menu?.[0]);
+
+setMenu(data.data?.[0]?.menu || []);
 
             }catch(err){
                 console.log(err)
@@ -40,9 +43,10 @@ const Resturent=()=>{
     // },[resId,resturants])
     // console.log("as",res)
     useEffect(() => {
-    const obj = resturants.find((item) => {
-        return item.info.id.toString() === resId;
-    });
+        if(!Array.isArray(resturants)) return;
+        const obj = resturants.find((item) => {
+            return item?.info?.id?.toString() === resId;
+        });
 
     console.log("obj:", obj);
 
@@ -57,16 +61,20 @@ console.log("as", res);
     return(
         <div className="resturant">
             <div className="resturant__breadcrumb">
-                <span>Home/Noida/{res?.info?.name}</span>
+                <span>Home/Noida/{res?.name}</span>
 
             </div>
             <div className="resturant__container">
                 <div className="resturant__info">
-                     <img className="res-img"
-      src={`https://media-assets.swiggy.com/swiggy/image/upload/${res?.info?.cloudinaryImageId}`}/>
-      
+                     {res?.cloudinaryImageId && (
+    <img
+        className="res-img"
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/${res.cloudinaryImageId}`}
+        alt={res?.name}
+    />
+)}
     
-                    <p>{res?.info?.name}</p>
+                    <p>{res?.name}</p>
                 </div>
                 <div className="resturant__service">
                     <p>Order Online</p>
@@ -75,16 +83,16 @@ console.log("as", res);
             </div>
             <div  className="resturant__menu">
                 {menu.map((items)=>{
-                    const title=items?.card.card.title;
+                    const title=items?.title;
                     return(
-                        <div   key={items.card.card.id}  className="resturant__menu-category">
+                        <div   key={items?.title}  className="resturant__menu-category">
                             <div className="resturant__title">
-                                <p>{title} ({items.card.card.itemCards.length})</p>
+                                <p>{title} ({items?.itemCards?.length || 0})</p>
                                 
                             </div>
                             <div className="resturant__menu-items">
-                                {items.card.card.itemCards && items.card.card.itemCards.map((r)=>{
-                                    return <MenuItemShow r={r} resturants={res} cartItems={cartItems} addItems={addItems} removeItems={removeItems}></MenuItemShow>
+                                {items?.itemCards?.map((r)=>{
+                                    return <MenuItemShow key={`${title}-${r.id}`} r={r} resturants={res} cartItems={cartItems} addItems={addItems} removeItems={removeItems}></MenuItemShow>
                                 })}
                             </div>
                         </div>

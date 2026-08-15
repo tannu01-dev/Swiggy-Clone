@@ -2,17 +2,19 @@ import "./../style/Menu.css"
 
 const MenuItemShow=({r,resturants,cartItems,addItems,removeItems})=>{
     
-    const isItemCart=cartItems.some((i)=>i.card.info.id === r.card.info.id);
+    const isItemCart = cartItems.some((i) => i.id === r.id);
 
-    const quantityInCart=isItemCart?cartItems.find((item)=> item.card.info.id === r.card.info.id).quantity:0;
+    const quantityInCart = isItemCart
+    ? cartItems.find((item) => item.id === r.id).quantity
+    : 0;
 
     return(
         
         <div className="resturant__menu-item-card">
             <div className="resturant__menu-item-info">
-                <p className="resturant__menu-item-name">{r.card.info.name}</p>
-                <p className="resturant__menu-item-price">{r.card.info.defaultPrice/100 || r.card.info.price/100}</p>
-                <p className="resturant__menu-item-description">{r.card.info.description}</p>
+                <p className="resturant__menu-item-name">{r.name}</p>
+                <p className="resturant__menu-item-price">{(r.defaultPrice || r.price || 0)/100}</p>
+                <p className="resturant__menu-item-description">{r.description}</p>
             </div>
             <div className="resturant__menu-item-action">
                 {isItemCart ? (
@@ -25,12 +27,15 @@ const MenuItemShow=({r,resturants,cartItems,addItems,removeItems})=>{
                     <button className="resturant__menu-item-add-btn" onClick={()=>{addItems(r,resturants)}}>ADD</button>
                     )}
                     
-                    <img 
- src={
-   r.card.info.imgUrl || 
-   `https://media-assets.swiggy.com/swiggy/image/upload/${r.card.info.imageId}`
- }
- alt={r.card.info.name}/>
+                    <img
+    src={
+        r.imgUrl ||
+        (r.imageId
+            ? `https://media-assets.swiggy.com/swiggy/image/upload/${r.imageId}`
+            : "")
+    }
+    alt={r.name}
+/>
                     
                     
             </div>

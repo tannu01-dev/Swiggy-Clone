@@ -14,9 +14,9 @@ const Home=()=>{
             <h2 className="home-heading">Resturant with online food in Noida</h2>
             
             <div className="home_card-container">
-  {resturants.map((res) => (
-    <Card key={res.info.id} res={res} show={true}></Card>
-  ))}
+                {resturants.map((res) => (
+                    <Card key={res._id} res={res} show={true}></Card>
+                    ))}
     {/* // <div className="card" key={res.info.id} >
     //   <img
     //     className="card-image"
