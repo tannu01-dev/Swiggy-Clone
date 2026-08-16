@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./../Style/Help.css";
+import "./../style/Help.css";
 
 const Help = () => {
   const [openIndex, setOpenIndex] = useState(null);
