@@ -11,7 +11,7 @@ import Resturent from './pages/Resturent.jsx'
 import ResturantList from "./pages/ResturantList";
 import CreateRestaurant from "./pages/CreateResturant.jsx"
 import PageNotFound from './pages/PageNotFound.jsx'
-import DeliveryAnimation from './pages/deliveryAnimation.jsx'
+import DeliveryAnimation from './pages/DeliveryAnimation.jsx'
 
 import Checkout from './pages/Checkout.jsx'
 
