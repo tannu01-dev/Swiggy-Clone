@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./../Style/create.css";
+import "./../style/create.css";
 
 const CreateRestaurant = () => {
   const navigate = useNavigate();
