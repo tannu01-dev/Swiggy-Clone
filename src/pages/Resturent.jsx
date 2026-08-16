@@ -15,7 +15,7 @@ const Resturent=()=>{
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-                const response=await fetch("http://localhost:9000/api/v1/menu");
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/menu`);               
                 const data = await response.json();
 
 console.log("BACKEND DATA:", data);
