@@ -128,8 +128,8 @@ useEffect(() => {
   const fetchResturants = async () => {
     try {
       const response = await fetch(
-        "http://localhost:9000/api/v1/Resturant"
-      );
+  `${import.meta.env.VITE_API_URL}/api/v1/Resturant`
+);
 
       console.log("Response:", response);
 
